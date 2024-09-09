@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import Component2 from './Component2';
 
 interface Component1Props {
-callBack: ()=>void
+callBack: (title: string)=>void
 }
 
 const Component1: React.FC<Component1Props> = ({ callBack }) => {
     const [isGreen, setIsGreen] = useState(false);
 
-    const callBackHandler = () => {
+    const callBackHandler = (title: string) => {
         setIsGreen(true)
-        callBack()
-        alert('Звонок из функции callBackHandler Компоненты-1')
+        callBack(title)
+        console.log('Component1 отрисовался с текстом: ', title)
+        // alert('Звонок из функции callBackHandler Компоненты-1')
     }
 
     return (

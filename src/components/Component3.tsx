@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import Component4 from './Component4';
 
 interface Component3Props {
-    onCallback: () => void;
+    onCallback: (title: string) => void;
 
 }
 
 const Component3: React.FC<Component3Props> = ({ onCallback }) => {
     const [isGreen, setIsGreen] = useState(false);
 
-    const callBackHandler = () => {
+    const callBackHandler = (title: string) => {
         setIsGreen(true)
-        onCallback()
+        onCallback(title)
+        console.log('Component3 отрисовался с текстом: ', title)
     }
 
     return (

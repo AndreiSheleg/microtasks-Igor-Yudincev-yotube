@@ -6,9 +6,12 @@ import Component1 from "./components/Component1";
 
 function App() {
     const [allGreen, setAllGreen] = useState(false);
+    const [newTitle, setNewTitle] = useState<string>('');
 
-    const handleFinalCallback = () => {
+    const handleFinalCallback = (title: string) => {
         setAllGreen(true);
+        console.log('App: ', title)
+        setNewTitle(title)
     };
 
     return (
@@ -17,7 +20,7 @@ function App() {
             <div className="container">
                 <Component1 callBack={handleFinalCallback}/>
             </div>
-            {allGreen && <p>Первый круг Ада пройден!</p>}
+            {allGreen && <p>{newTitle}</p>}
         </div>
     );
 }
